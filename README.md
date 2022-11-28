@@ -289,8 +289,7 @@ Para añadir un contenedor de Wireshark añadimos el siguiente codigo a nuestro 
       - 3000:3000
     restart: unless-stopped
 ```
-
- Tambien creamos una nueva carpeta firefox donde se van a guardar los ficheros del volumen
+Creamos la carpeta "firefox" donde se van a guardar los ficheros del volumen
  **__mkdir wires__**
 
 
