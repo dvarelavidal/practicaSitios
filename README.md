@@ -145,9 +145,8 @@ networks:
     bind9_subnet:
         external: true
  ```
-Creamos la red "network" bind9 con el comando **__docker network create --subnet=10.1.0.222/24 --gateway 10.1.0.1**
-
-Tambien añadiremos dos carpetas una config, para confirar las zonas y una zonas que gestonara la resolución de nombres
+Vamos a crear la red  "network" bind9 con el comando **__docker network create --subnet=10.1.0.222/24 --gateway 10.1.0.1**
+Añadiremos a mayores dos carpetas un config, para confirar las zonas y una zonas que gestonara la resolución de nombres
 
 - Config
 ```
@@ -213,13 +212,12 @@ Ahora para comproba que funciona debemos entrar en la shell de nuestro cliente e
 
 
 
-Una vez comprobamos que tenemos conexión con el dns ya podremos hacer peticiones a la página y recebiremos la información que introduimos dentro imagen
+Una vez comprobamos que tenemos conexión con el dns ya podremos hacer peticiones a la página y recebiremos la información que introduimos dentro.
 
 ## Configurar SSL
+Iremos a attach shell de apache y escribimos el comando **__"a2enmod ssl"__**, el cual activará la configuración de nustro certificados en nuestro contenedor.
 
-Para empezar nos dirigimos a  attach shell del apache y escribimos el comando **__"a2enmod ssl"__**, esto activara la configuración de nustro certificados en nuestro contenedor.
-
-A continuación creamos la carpeta **__"certs"__**, donde guardaremos nuestros certificados, y nos movemos a dicha carpeta  
+Posteriormente, crearemos la carpeta **__"certs"__**, donde almacenaremos nuestros certificados, y nos moveremos a dicha carpeta.
 
 Ahora para completar dicha configuración  utilizamos el comando **__"openssl req -new -newkey rsa:4096 -x509 -sha256 -days 365 -nodes -out apache-certificate.crt -keyout apache.key"__** y rellenamos los campos como se indique
 
@@ -267,7 +265,7 @@ Para añadir firefox lo que vamos a hacer es añadir las siguientes lineas de co
  
 
 
-## Añadir Wireshark
+## Wireshark
 
 Para añadir un contenedor de Wireshark añadimos el siguiente codigo a nuestro codigo a nuestro **__Docker Compose__**
 
@@ -289,7 +287,7 @@ Para añadir un contenedor de Wireshark añadimos el siguiente codigo a nuestro 
       - 3000:3000
     restart: unless-stopped
 ```
-Creamos la carpeta "firefox" donde se van a guardar los ficheros del volumen
+Ahora, crearemos la carpeta "firefox" donde se almacenarán los ficheros del volumen
  **__mkdir wires__**
 
 
